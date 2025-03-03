@@ -7,7 +7,7 @@
   #zen-appcontent-wrapper::before {
     content: "" !important;
     position: absolute !important;
-    top: 2px !important;
+    top: 0px !important;
     left: 6px !important;
     height: 4px !important; /* Height of the top background */
     max-width: calc(100% - 16px) !important; /* Adjust for margins */
@@ -21,22 +21,22 @@
   /* Current tab loading progress and muted status */
   #main-window {
     &:has(.tabbrowser-tab[selected][busy]) {
-      --bar-colour: white;
+      --bar-colour: var(--color-accent-primary);
       --bar-pcent: 15%;
     }
 
     &:has(.tabbrowser-tab[selected][busy][pendingicon]) {
-      --bar-colour: white;
+      --bar-colour: var(--color-accent-primary);
       --bar-pcent: 45%;
     }
 
     &:has(.tabbrowser-tab[selected][busy][pendingicon][progress]) {
-      --bar-colour: white;
+      --bar-colour: var(--color-accent-primary);
       --bar-pcent: 85%;
     }
 
     &:has(.tabbrowser-tab[selected][busy][progress]) {
-      --bar-colour: white;
+      --bar-colour: var(--color-accent-primary);
       --bar-pcent: 95%;
     }
 
