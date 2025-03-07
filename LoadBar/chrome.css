@@ -62,7 +62,7 @@
   }
 
   /* Center fading variant */
-  @media (-moz-bool-pref: "uc.loadbar.center_bar") {
+  @media (-moz-bool-pref: "uc.loadbar.centerbar") {
     #zen-appcontent-wrapper::before {
       left: 50% !important;
       transform: translateX(-50%) !important;
