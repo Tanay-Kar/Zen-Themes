@@ -1,0 +1,7 @@
+[
+  {
+    "property": "uc.loadbar.centerbar",
+    "label": "Center Bar with Fading animation",
+    "type": "checkbox"
+  }
+]
