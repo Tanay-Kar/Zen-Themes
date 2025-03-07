@@ -8,7 +8,7 @@
   #zen-appcontent-wrapper::before {
     content: "" !important;
     position: absolute !important;
-    top: 0px !important;
+    top: 1px !important;
     height: 4px !important;
     background-color: var(--bar-colour) !important;
     border-radius: 4px !important;
@@ -31,7 +31,7 @@
   }
 
   /* Original implementation with progressive width */
-  @media not (-moz-bool-pref: "uc.loadbar.centerbar") {
+  @media not (-moz-bool-pref: "uc.loadbar.center_bar") {
     #zen-appcontent-wrapper::before {
       left: 6px !important;
       max-width: calc(100% - 16px) !important;
@@ -43,6 +43,7 @@
       &:has(.tabbrowser-tab[selected]:not([busy])) {
         --bar-pcent: 100%;
       }
+      
       &:has(.tabbrowser-tab[selected][busy]) {
         --bar-pcent: 15%;
       }
@@ -61,8 +62,8 @@
     }
   }
 
-  /* Center fading variant */
-  @media (-moz-bool-pref: "uc.loadbar.centerbar") {
+  /* New implementation with centered fixed width */
+  @media (-moz-bool-pref: "uc.loadbar.center_bar") {
     #zen-appcontent-wrapper::before {
       left: 50% !important;
       transform: translateX(-50%) !important;
