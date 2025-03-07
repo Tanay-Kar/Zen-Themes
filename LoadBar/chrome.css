@@ -31,7 +31,7 @@
   }
 
   /* Original implementation with progressive width */
-  @media not (-moz-bool-pref: "uc.loadbar.center_bar") {
+  @media not (-moz-bool-pref: "uc.loadbar.centerbar") {
     #zen-appcontent-wrapper::before {
       left: 6px !important;
       max-width: calc(100% - 16px) !important;
