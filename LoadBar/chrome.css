@@ -1,89 +1,55 @@
 @media (-moz-bool-pref: "zen.view.use-single-toolbar") {
-  #zen-appcontent-wrapper {
-    position: relative !important;
-    background-color: transparent !important;
-  }
-  
-  /* Common properties for both implementations */
-  #zen-appcontent-wrapper::before {
-    content: "" !important;
-    position: absolute !important;
-    top: 1px !important;
-    height: 4px !important;
-    background-color: var(--bar-colour) !important;
-    border-radius: 4px !important;
-    pointer-events: none !important;
-  }
-  
-  /* Common main-window settings */
-  #main-window {
-    &:has(.tabbrowser-tab[selected][busy]) {
-      --bar-colour: var(--color-accent-primary);
+    .browserSidebarContainer.deck-selected::before {
+      content: "" !important;
+      position: absolute !important;
+      top: 0px !important;
+      left: 0px !important;
+      height: 4px !important; /* Height of the top background */
+      max-width: 100% !important;
+      width: var(--bar-pcent) !important; /* Ensure full width or customizable width */
+      background-color: var(--bar-colour) !important; /* Solid color for the bar */
+      border-radius: 0 2px 2px 0; /* Adjust this value to control the roundness of the ends */
+      z-index: 1 !important;
+      transition: width 0.5s ease-in-out, background 0.2s ease !important; /* Apply smooth transition on width and background */
+    }    /* Current tab loading progress and muted status */
+    
+    
+    .browserSidebarContainer.deck-selected:has([zen-glance-selected])::before,
+    .browserSidebarContainer.deck-selected.zen-glance-overlay::before {
+      max-width: calc(85%) !important;
+      left: calc(15%/2) !important;
+      border-radius: 6px !important;
     }
     
-    &:has(.tabbrowser-tab[selected]:not([busy])) {
-      --bar-colour: transparent;
+    .browserSidebarContainer.deck-selected.zen-glance-background::before {
+      background: transparent !important;
+      height: 0px !important;
     }
     
-    &:has(.tabbrowser-tab[selected][muted]:not([busy])) {
-      --bar-colour: orangered;
-    }
-  }
-
-  /* Original implementation with progressive width */
-  @media not (-moz-bool-pref: "uc.loadbar.centerbar") {
-    #zen-appcontent-wrapper::before {
-      left: 6px !important;
-      max-width: calc(100% - 16px) !important;
-      width: var(--bar-pcent) !important;
-      transition: width 0.5s ease-in-out, background 0.2s ease-in !important;
-    }
-    
-    #main-window {
-      &:has(.tabbrowser-tab[selected]:not([busy])) {
-        --bar-pcent: 100%;
-      }
-      
+    :root {
       &:has(.tabbrowser-tab[selected][busy]) {
+        --bar-colour: var(--zen-primary-color);
         --bar-pcent: 15%;
       }
       &:has(.tabbrowser-tab[selected][busy][pendingicon]) {
+        --bar-colour: var(--zen-primary-color);
         --bar-pcent: 45%;
       }
       &:has(.tabbrowser-tab[selected][busy][pendingicon][progress]) {
+        --bar-colour: var(--zen-primary-color);
         --bar-pcent: 85%;
       }
       &:has(.tabbrowser-tab[selected][busy][progress]) {
+        --bar-colour: var(--zen-primary-color);
         --bar-pcent: 95%;
       }
       &:has(.tabbrowser-tab[selected][muted]:not([busy])) {
+        --bar-colour: orangered;
         --bar-pcent: 100%;
-      }
-    }
-  }
-
-  /* New implementation with centered fixed width */
-  @media (-moz-bool-pref: "uc.loadbar.centerbar") {
-    #zen-appcontent-wrapper::before {
-      left: 50% !important;
-      transform: translateX(-50%) !important;
-      width: max(5%,50px) !important;
-      transition: opacity 0.2s ease-in-out, background 0.2s ease-in !important;
-      opacity: 0;
-    }
-    
-    #main-window {
-      &:has(.tabbrowser-tab[selected][busy]) {
-        #zen-appcontent-wrapper::before {
-          opacity: 1;
-          animation: pulse-opacity 1.0s infinite alternate;
+        
+        .browserSidebarContainer.deck-selected::before {
+          border-radius: 0;
         }
       }
     }
   }
-
-  @keyframes pulse-opacity {
-    0% { opacity: 0.4; }
-    100% { opacity: 1; }
-  }
-}
