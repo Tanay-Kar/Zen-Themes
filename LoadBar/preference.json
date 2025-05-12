@@ -3,5 +3,10 @@
     "property": "uc.loadbar.centerbar",
     "label": "Center Bar with Fading animation",
     "type": "checkbox"
+  },
+  {
+	"property": "uc.loadbar.roundedcorner",
+    "label": "Whether use rounded corner for load bar or not",
+    "type": "checkbox"
   }
 ]
