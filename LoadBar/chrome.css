@@ -1,5 +1,3 @@
-/* === TOP LOAD BAR === */
-/* Based on code by https://github.com/Tanay-Kar */
 @-moz-document url-prefix("chrome:") {
   @media (-moz-bool-pref: "zen.view.use-single-toolbar") {
     .browserSidebarContainer.deck-selected::before {
