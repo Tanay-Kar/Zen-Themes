@@ -74,17 +74,17 @@
   */
   @media (-moz-bool-pref: "zen.view.compact.hide-toolbar") {
     :root:not([zen-single-toolbar='true']):has([zen-compact-mode='true']) {
-      &:has(#zen-appcontent-navbar-container[zen-has-hover]),
-      &:has(#zen-appcontent-navbar-container[zen-user-show]),
-      &:has(#zen-appcontent-navbar-container[has-popup-menu]),
-      &:has(*:is(#zen-appcontent-navbar-container[panelopen='true'], 
-                 #zen-appcontent-navbar-container[open='true'], 
+      &:has(#zen-appcontent-navbar-wrapper[zen-has-hover]),
+      &:has(#zen-appcontent-navbar-wrapper[zen-user-show]),
+      &:has(#zen-appcontent-navbar-wrapper[has-popup-menu]),
+      &:has(*:is(#zen-appcontent-navbar-wrapper[panelopen='true'], 
+                 #zen-appcontent-navbar-wrapper[open='true'], 
                  #urlbar:focus-within:not(#urlbar[zen-floating-urlbar='true']), 
-                 #zen-appcontent-navbar-container[breakout-extend='true'])
+                 #zen-appcontent-navbar-wrapper[breakout-extend='true'])
             :not(.zen-compact-mode-ignore)
       ) {
         .browserSidebarContainer.deck-selected::before {
-          top: 40px !important;
+          top: 39px !important;
         }
       }
     }
